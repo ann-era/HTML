@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Jiburi Foodie</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #212121;
+        }
+
+        .option {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .option a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .option a:hover {
+            color: #454545;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Lucida Sans Unicode', sans-serif;
+            font-size: 50px;
+            color: #ffffff;
+            text-shadow: 0 0 20px peachpuff;
+        }
+
+        h2 {
+            background-color: peachpuff;
+            padding: 2px;
+            margin: 2px;
+            text-align: center;
+        }
+
+        h3 {
+            color: peachpuff;
+        }
+
+        p {
+            color: white;
+        }
+
+        #header-img {
+            width: 100%;
+        }
+
+        #menu-img {
+            width: 350px;
+        }
+
+        label {
+            color: white;
+        }
+
+        article {
+            text-align: center;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var mainMenus = document.getElementsByName("main_menu");
+            var sideMenus = document.getElementsByName("side_menu");
+            var drinks = document.getElementsByName("drinks");
+
+            var isMainMenuSelected = false;
+            for (var i = 0; i < mainMenus.length; i++) {
+                if (mainMenus[i].value > 0) {
+                    isMainMenuSelected = true;
+                    break;
+                }
+            }
+
+            var isSideMenuSelected = false;
+            for (var i = 0; i < sideMenus.length; i++) {
+                if (sideMenus[i].checked) {
+                    isSideMenuSelected = true;
+                    break;
+                }
+            }
+
+            var isDrinkSelected = false;
+            for (var i = 0; i < drinks.length; i++) {
+                if (drinks[i].checked) {
+                    isDrinkSelected = true;
+                    break;
+                }
+            }
+
+            if (!isMainMenuSelected && !isSideMenuSelected && !isDrinkSelected) {
+                message = "Uh-oh! It looks like you haven't chosen anything yet. Select your favourites and let the Jiburi feast begin!";
+            }
+            else if (!(isMainMenuSelected || isSideMenuSelected)) {
+                message = "Kindly choose at least one main menu or treat yourself to a side menu. Your enchanting dining experience is just a selection away!";
+            }
+            else if (!isDrinkSelected) {
+                message = "Your refreshing sip awaits - make your selection and let the enchantment flow!";
+            }
+            else {
+                message = "Thank you for your order! Your magical feast is on its way!";
+            }
+
+            return message;
+        }
+
+        function showAlert() {
+            alert(validateForm());
+        }
+       
+    </script>
+</head>
+<body>
+    <header>
+        <h1>The Jiburi Foodie</h1>
+        <nav class="option">
+            <a href="#menu" title="Menu">Menu</a>
+            <a href="#order-form" title="Order Form">Order Form</a>
+        </nav>
+        <img id="header-img" src="https://rb.gy/fheab" alt="The Jiburi Foodie"/>
+    </header>
+    <h2 id="menu">Menu</h2>
+        <article>
+            <h3>Ponyo's Ham</h3>
+            <img id="menu-img" src="https://shorturl.at/fmowZ" alt="Jiburi Foodie: Ponyo's Ham"/>
+            <p>A delightful experience that allows you to taste the magic of Ponyo's aquatic adventures and brings a smile to your face with every spoonful.</p>
+            <p>The ham's tender, salty goodness pairs perfectlly with the savory broth and noodles, creating a harmonious symphony of flavors.</p>
+        </article>
+        <br><br>
+        <article>
+            <h3>Totoro's Bento</h3>
+            <img id="menu-img" src="https://shorturl.at/CFHM1" alt="Jiburi Foodie: Totoro's Bento"/>
+            <p>Totoro's Rice Bento: A simple yet magical meal.</p>
+            <p>Each grain of rice, a canvas of flavor. Explore the enchantment of Totoro's world, one bite at a time.</p>
+        </article>
+        <br><br>
+        <article>
+            <h3>Howl's Fiery Breakfast</h3>
+            <img id="menu-img" src="https://shorturl.at/dpSTZ" alt="Jiburi Foodie: Howl's Fiery Breakfast"/>
+            <p>A magical morning feast of sizzling bacon and eggs made by our spiteful but friendly fire demon - Calcifier.</p>
+            <p>Let your senses awaken and your spirit take flight with this truly enchanting breakfast experience.</p>
+        </article>
+        <br><br>
+        <article>
+            <h3>Kiki's Herring and Pumpkin Pie</h3>
+            <img id="menu-img" src="https://shorturl.at/cDJRW" alt="Jiburi Foodie: Kiki's Herring and Pumpkin Pie"/>
+            <p>A harmonious blend of tender herring and roasted pumpkin, wrapped in a flaky golden crust.</p>
+            <p>Indulge in a culinary adventure that captures the whimsy and wonder of Kiki's extraordinary journey.</p>
+        </article>
+        <br><br>
+        <article>
+            <h3>Spirited Away Onigiri</h3>
+            <img id="menu-img" src="https://shorturl.at/kmyQ8" alt="Jiburi Foodie: Spirited Away Onigiri"/>
+            <p>Enjoy a culinary journey that mirrors the enchanting adventures of Haku and Chihiro.</p>
+            <p>As you savor these handcrafted onigiri, you'll feel as if you've stepped into the magical bathhouse, where spirits and wonders abound.</p>
+        </article>
+        <br><br>
+    <h2 id="order-form">Place Your Order</h2><br>
+        <form>
+            <h3>MAINS:</h3>
+            <label for="main_menu1">Ponyo's Ham:</label><br>
+            <input type="number" id="main_menu1" name="main_menu" min="0" value="0"><br><br>
+            <label for="main_menu2">Totoro's Bento:</label><br>
+            <input type="number" id="main_menu2" name="main_menu" min="0" value="0"><br><br>
+            <label for="main_menu3">Howl's Fiery Breakfast:</label><br>
+            <input type="number" id="main_menu3" name="main_menu" min="0" value="0"><br><br>
+            <label for="main_menu4">Kiki's Herring and Pumpkin Pie:</label><br>
+            <input type="number" id="main_menu4" name="main_menu" min="0" value="0"><br><br>
+            <label for="main_menu5">Spirited Away Onigiri:</label><br>
+            <input type="number" id="main_menu5" name="main_menu" min="0" value="0"><br><br>
+            <br>
+            <h3>SIDES:</h3>
+            <input type="checkbox" name="side_menu" id="side_menu1">
+            <label for="side_menu1">Whisper of the Wind Chimes Fruit Salad</label><br><br>
+            <input type="checkbox" name="side_menu" id="side_menu2">
+            <label for="side_menu2">Totoro's Tempura</label><br><br>
+            <input type="checkbox" name="side_menu" id="side_menu3">
+            <label for="side_menu3">Howl's Moving Fries</label><br><br>
+            <input type="checkbox" name="side_menu" id="side_menu4">
+            <label for="side_menu4">Ghibli Gyoza</label><br><br>
+            <input type="checkbox" name="side_menu" id="side_menu5">
+            <label for="side_menu5">Ponyo's Seaweed Snack</label><br><br>
+            <br>
+            <h3>FREE DRINKS (Choose 1):</h3>
+            <input type="radio" name="drinks" id="drink1">
+            <label for="drink1">Spirited Lemonade</label><br><br>
+            <input type="radio" name="drinks" id="drink2">
+            <label for="drink2">Mononoke Mint Infusion</label><br><br>
+            <input type="radio" name="drinks" id="drink3">
+            <label for="drink1">Ghibli Ginger Ale</label><br><br>
+            <h3>SPECIAL REQUEST:</h3>
+            <textarea rows="4" cols="50"></textarea><br><br>
+            <br>
+            <label for="checkout"><input id = "checkout" type="submit" value="Go To Checkout" onsubmit="return validateForm()" onclick="showAlert()"></label>
+        </form>
+        <br><br>
+    <footer>
+        <p>Made with ❤ by @YON</p>
+        <p>Credit: <a href="https://shorturl.at/cwMPU" target="_blank">Serious Eats</a></p>
+    </footer>
+</body>
+</html>
