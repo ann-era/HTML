@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ Queue System</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="validityCheck.js"></script>
+</head>
+<body>
+    <div class="Qsystem">
+        <h1>Sila masukkan nombor telefon anda untuk menerima notis tiket melalui SMS</h1>
+        <p id="whiteEnglish">Please enter your mobile number to receive ticket notification via SMS</p><br><br>
+        <form>
+            <label for="CountryCode">Kod panggilan negara<br>Country code</label><br>
+            <select class="records" id="CountryCode" name="CountryCode">
+                <option value="malaysia">Malaysia</option>
+            </select><br><br>
+            <label for="PhoneNumber">Nombor telefon<br>Mobile number</label><br>
+            <input class="records" type=text id="PhoneNumber" name="PhoneNumber" pattern="^(\+?6?01)[02-46-9]-*[0-9]{7}$|^(\+?6?01)[1]-*[0-9]{8}$" required><br><br><br>
+            <button type="submit" id="getTicket" title="Get a ticket" onclick="validityChecker(event)"><b>Dapatkan tiket</b><br>Get a ticket</button>
+        </form>
+    </div>
+</body>
+</html>
