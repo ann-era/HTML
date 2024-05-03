@@ -4,6 +4,6 @@ function validityChecker(event) {
         event.preventDefault();
     } else {
         event.preventDefault();
-        window.location.href = "Page3.html";
+        window.location.href = "page3.html";
     }
 }
